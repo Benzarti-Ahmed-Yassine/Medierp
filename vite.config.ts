@@ -4,11 +4,15 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
-// Force reload to pick up Lovable Cloud environment variables
 export default defineConfig(({ mode }) => ({
   server: {
     host: "::",
     port: 8080,
+  },
+  envPrefix: ['VITE_'],
+  define: {
+    'import.meta.env.VITE_SUPABASE_URL': JSON.stringify(process.env.VITE_SUPABASE_URL),
+    'import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY': JSON.stringify(process.env.VITE_SUPABASE_PUBLISHABLE_KEY),
   },
   plugins: [
     react(),
