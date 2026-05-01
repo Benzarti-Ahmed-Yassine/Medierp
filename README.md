@@ -1,109 +1,101 @@
-# 🏥 Smart Medical AI
+# 🏥 MediERP Professional
 
-**Plateforme intelligente de gestion médicale avec IA prédictive**
+**Système ERP Médical Intégré avec IA Prédictive et Authentification Biométrique**
 
-> Développé pour le Dr. Didier — Médecine Préventive & Cardiologie
-
----
-
-## ✨ Fonctionnalités
-
-- 🤖 **IA Prédictive** — Prédiction du risque cardiaque avec Machine Learning
-- 🔐 **Auth Biométrique** — Reconnaissance faciale + empreinte digitale
-- 🎤 **Dictée Vocale** — Saisie vocale des consultations
-- 🔒 **Blockchain Audit** — Logs immuables et traçables
-- 📊 **Dashboard Temps Réel** — Statistiques et alertes live
-- 💊 **Ordonnances PDF** — Génération avec QR code et signature
-- 💰 **Facturation** — Gestion CCAM/NGAP, tiers payant
-- 📱 **Responsive** — Interface adaptative dark theme
+> Une solution complète pour la gestion médicale moderne, optimisée pour la performance et l'expérience utilisateur avec un design "Full Light" professionnel.
 
 ---
 
-## 🚀 Démarrage Rapide
-
-### Prérequis
-- Python 3.10+
-- Thonny IDE (recommandé pour les débutants)
-- Webcam (optionnel, pour biométrie)
-
-### Installation
-
-```bash
-# 1. Cloner le projet
-cd SmartMedicalAI
-
-# 2. Créer l'environnement virtuel
-python -m venv venv
-source venv/bin/activate  # Linux/Mac
-venv\Scripts\activate   # Windows
-
-# 3. Installer les dépendances
-pip install -r requirements.txt
-
-# 4. Configurer les variables d'environnement
-cp .env.example .env
-# Éditer .env avec vos valeurs
-
-# 5. Lancer l'application
-python main.py
-```
-
-### Identifiants de démo
-- **Email:** `didier@smartmedical.ai`
-- **Password:** `didier2024`
-- **Rôle:** Docteur
+## ✨ Points Forts
+- 🎨 **Design Premium** — Interface "Full Light" épurée, moderne et intuitive.
+- 🤖 **IA Prédictive** — Analyse des risques cardiaques via Machine Learning (Scikit-learn).
+- 🔐 **Sécurité Biométrique** — Authentification par reconnaissance faciale et vocale.
+- 🌐 **Architecture Hybride** — Application Desktop performante (Python) et Interface Web moderne (React).
+- ☁️ **Synchronisation Cloud** — Intégration native avec Supabase pour une gestion temps réel.
+- 🎤 **Dictée Vocale** — Assistant intelligent pour la saisie des consultations.
 
 ---
 
-## 🏗️ Architecture
+## 🏗️ Architecture du Système
 
-```
-SmartMedicalAI/
+MediERP repose sur une stack technologique hybride unique combinant la puissance du Desktop et la flexibilité du Web.
+
+### 🔹 Backend & Desktop (Python Stack)
+*   **Core**: Gestion du cycle de vie de l'application, sécurité et événements (`src/core`).
+*   **UI Desktop**: Interface riche développée en PyQt6 avec styles QSS personnalisés (`src/views`).
+*   **Intelligence Artificielle**: Modèles ML pour le diagnostic et services biométriques (`src/services`).
+*   **Persistance Locale**: SQLite avec chiffrement pour la confidentialité des données.
+
+### 🔹 Frontend Web (React Stack)
+*   **Framework**: Vite + React + TypeScript pour une réactivité maximale.
+*   **UI Components**: Design system basé sur Shadcn UI et Tailwind CSS (`src/components/ui`).
+*   **Backend-as-a-Service**: Synchronisation et authentification via Supabase (`src/integrations`).
+
+---
+
+## 📂 Structure du Projet
+
+```text
+MediERP/
 ├── src/
-│   ├── core/           # App, Database, Security, Events
-│   ├── models/         # ORM léger (Patient, User, etc.)
-│   ├── controllers/    # Logique métier
-│   ├── views/          # Interface PyQt6
-│   ├── services/       # ML, Biométrie, PDF, Voix
-│   └── utils/          # Helpers, Validators
-├── database/           # Schéma SQL + Migrations
-├── config/             # Settings + Styles Qt
-├── assets/             # Modèles ML, Icônes, Fonts
-└── tests/              # Tests unitaires
+│   ├── core/           # Moteur de l'application (Database, Security, Events)
+│   ├── views/          # Interface Desktop PyQt6 (.py & .ui)
+│   ├── services/       # Services IA (Face Recog, ML, Voice, Speech)
+│   ├── models/         # Modèles de données (Patient, User, Base)
+│   ├── components/     # Composants React (PatientList, AdminDashboard, etc.)
+│   ├── hooks/          # Logic web (usePatients, useMedicaments)
+│   └── integrations/   # Connexion Supabase
+├── database/           # Schémas SQL et scripts de migration
+├── db/                 # Bases de données SQLite locales
+├── config/             # Paramètres système et feuilles de style QSS
+├── assets/             # Modèles ML (.pkl), Fonts, et Multimédia
+├── supabase/           # Configuration et migrations Cloud
+└── tests/              # Suite de tests unitaires et d'intégration
 ```
 
 ---
 
-## 🧪 Tests
+## 🚀 Installation et Lancement
 
-```bash
-# Exécuter tous les tests
-pytest tests/ -v
+### 🖥️ Application Desktop (Python)
+1.  **Prérequis**: Python 3.10+
+2.  **Environnement**:
+    ```bash
+    python -m venv venv
+    venv\Scripts\activate
+    pip install -r requirements.txt
+    ```
+3.  **Lancement**:
+    ```bash
+    python main.py
+    ```
 
-# Avec couverture
-pytest tests/ --cov=src --cov-report=html
-```
-
----
-
-## 📋 Stack Technique
-
-| Technologie | Usage |
-|-------------|-------|
-| PyQt6 | Interface graphique |
-| Python 3.12 | Langage principal |
-| SQLite3 + SQLCipher | Base de données chiffrée |
-| Scikit-learn | Machine Learning |
-| OpenCV | Vision / Biométrie |
-| ReportLab | Génération PDF |
-| bcrypt + PyJWT | Sécurité |
-
----
-
-## 📄 License
-
-MIT License — Projet éducatif
+### 🌐 Application Web (React)
+1.  **Prérequis**: Node.js 18+
+2.  **Installation**:
+    ```bash
+    npm install
+    ```
+3.  **Lancement**:
+    ```bash
+    npm run dev
+    ```
 
 ---
 
+## 📋 Stack Technique Complète
 
+| Domaine | Technologies |
+| :--- | :--- |
+| **Langages** | Python 3.12, TypeScript, SQL |
+| **Desktop GUI** | PyQt6, Qt Designer, QSS |
+| **Web Frontend** | React, Vite, Tailwind CSS, Shadcn UI |
+| **Data & Cloud** | Supabase, PostgreSQL, SQLite |
+| **Machine Learning** | Scikit-learn, OpenCV, NumPy |
+| **Sécurité** | Biométrie (FaceID), Bcrypt, JWT |
+| **Services** | Dictée vocale, Génération PDF (ReportLab) |
+
+---
+
+## 📄 Licence
+Propriété de **Benzarti Ahmed Yassine**. Tous droits réservés.
