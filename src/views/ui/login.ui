@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ProfessionalLoginDialog</class>
+ <widget class="QDialog" name="ProfessionalLoginDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>450</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Authentification Professionnelle - Smart Medical AI</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QDialog {
+    background-color: #ffffff;
+}
+QLabel {
+    color: #262626;
+}
+QLineEdit, QComboBox {
+    background-color: #ffffff;
+    border: 1px solid #ffffff;
+    border-radius: 6px;
+    padding: 10px;
+    color: #262626;
+}
+QPushButton#btnLogin {
+    background-color: #00d4ff;
+    color: #262626;
+    font-weight: bold;
+    border-radius: 6px;
+    padding: 12px;
+}
+QPushButton#btnFaceID {
+    background-color: #533483;
+    color: #262626;
+    font-weight: bold;
+    border-radius: 6px;
+    padding: 15px;
+    border: 2px solid #00d4ff;
+}
+QPushButton#btnFaceID:hover {
+    background-color: #00d4ff;
+    color: #262626;
+}
+QPushButton#btnPatientSpace {
+    color: #41cd52;
+    background-color: transparent;
+    border: 1px solid #41cd52;
+    border-radius: 6px;
+    padding: 8px;
+}</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="spacing">
+    <number>20</number>
+   </property>
+   <property name="leftMargin">
+    <number>50</number>
+   </property>
+   <property name="topMargin">
+    <number>50</number>
+   </property>
+   <property name="rightMargin">
+    <number>50</number>
+   </property>
+   <property name="bottomMargin">
+    <number>50</number>
+   </property>
+   <item>
+    <widget class="QLabel" name="lblLogo">
+     <property name="font">
+      <font>
+       <family>Segoe UI</family>
+       <pointsize>22</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: #00d4ff;</string>
+     </property>
+     <property name="text">
+      <string>SMART MEDICAL AI</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <set>Qt::Vertical</set>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>40</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item>
+    <widget class="QLabel" name="label">
+     <property name="text">
+      <string>Rôle</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QComboBox" name="comboRole">
+     <item>
+      <property name="text">
+       <string>Médecin</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Secrétaire</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Administrateur</string>
+      </property>
+     </item>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="btnFaceID">
+     <property name="text">
+      <string>📷 AUTHENTIFICATION FACE ID</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="label_3">
+     <property name="text">
+      <string>OU</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="label_2">
+     <property name="text">
+      <string>Email</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLineEdit" name="txtEmail">
+     <property name="placeholderText">
+      <string>votre@email.com</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLineEdit" name="txtPassword">
+     <property name="echoMode">
+      <enum>QLineEdit::Password</enum>
+     </property>
+     <property name="placeholderText">
+      <string>Mot de passe</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="btnLogin">
+     <property name="text">
+      <string>CONNEXION CLASSIQUE</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <spacer name="verticalSpacer_2">
+     <property name="orientation">
+      <set>Qt::Vertical</set>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>40</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item>
+    <widget class="QPushButton" name="btnPatientSpace">
+     <property name="text">
+      <string>ACCÈS ESPACE PATIENT</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

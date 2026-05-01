@@ -1,0 +1,115 @@
+/* MediERP - Design System (High Fidelity) */
+
+/* Global Reset */
+QMainWindow, QDialog, QWidget {
+    background-color: #ffffff; /* Fond blanc pur */
+    color: #262626;
+    font-family: 'Segoe UI', 'Roboto', sans-serif;
+}
+
+/* Sidebar - Blanc pur */
+QFrame#nav_panel {
+    background-color: #ffffff;
+    border-right: 1px solid #e8e8e8; /* Séparateur léger */
+    margin: 0px;
+}
+
+QLabel#lblLogo {
+    color: #1890ff; /* Logo bleu au lieu de blanc */
+    font-size: 18pt;
+    font-weight: bold;
+    padding: 25px 20px;
+}
+
+/* Sidebar Buttons */
+QPushButton {
+    text-align: left;
+    padding: 15px 25px;
+    background-color: transparent;
+    border: none;
+    color: #595959; /* Texte gris foncé sur fond blanc */
+    font-size: 11pt;
+    border-radius: 0px;
+}
+
+/* Style spécifique pour l'icône au début du texte */
+QPushButton::icon {
+    width: 24px;
+    height: 24px;
+}
+
+QPushButton:hover {
+    color: #1890ff;
+    background-color: rgba(24, 144, 255, 0.1); /* Hover bleu très clair */
+}
+
+QPushButton:checked {
+    background-color: #1890ff;
+    color: #ffffff;
+}
+
+/* Header Bar */
+QFrame#header_bar {
+    background-color: #ffffff;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+/* Dashboard Cards */
+QFrame.stat_card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #e8e8e8;
+}
+
+QLabel#card_title {
+    color: #8c8c8c;
+    font-size: 10pt;
+}
+
+QLabel#card_value {
+    color: #262626;
+    font-size: 20pt;
+    font-weight: bold;
+}
+
+/* Tables & Lists */
+QTableWidget {
+    background-color: #ffffff;
+    border: 1px solid #f0f0f0;
+    border-radius: 8px;
+    gridline-color: #fafafa;
+}
+
+QHeaderView::section {
+    background-color: #ffffff;
+    padding: 12px;
+    border: none;
+    border-bottom: 2px solid #1890ff; /* Soulignement bleu au lieu de fond gris */
+    font-weight: bold;
+    color: #262626;
+}
+
+/* Form Inputs */
+QLineEdit {
+    background-color: #ffffff;
+    border: 1px solid #d9d9d9;
+    border-radius: 6px;
+    padding: 8px 12px;
+}
+
+QLineEdit:focus {
+    border-color: #40a9ff;
+}
+
+/* Action Buttons (Primary) */
+QPushButton#btnPrimary {
+    background-color: #1890ff;
+    color: #ffffff;
+    border-radius: 6px;
+    padding: 10px 20px;
+    font-weight: bold;
+}
+
+QPushButton#btnPrimary:hover {
+    background-color: #40a9ff;
+}

@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>SettingsDialog</class>
+ <widget class="QDialog" name="SettingsDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>500</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Paramètres - Smart Medical AI</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QDialog {
+    background-color: #ffffff;
+    color: #262626;
+}
+QTabWidget::pane {
+    border: 1px solid #e8e8e8;
+    background-color: #ffffff;
+    border-radius: 0 8px 8px 8px;
+}
+QTabBar::tab {
+    background-color: #f5f5f5;
+    color: #595959;
+    padding: 10px 20px;
+    margin: 2px;
+    border-radius: 6px 6px 0 0;
+}
+QTabBar::tab:selected {
+    background-color: #1890ff;
+    color: #ffffff;
+    font-weight: bold;
+}
+QLabel { color: #262626; }
+QLineEdit {
+    background-color: #f5f5f5;
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    color: #262626;
+    padding: 5px;
+}
+QComboBox {
+    background-color: #f5f5f5;
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    color: #262626;
+    padding: 5px;
+}
+QSpinBox {
+    background-color: #f5f5f5;
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    color: #262626;
+    padding: 5px;
+}</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QTabWidget" name="tabWidget">
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <widget class="QWidget" name="tabGeneral">
+      <attribute name="title">
+       <string>Général</string>
+      </attribute>
+      <layout class="QFormLayout" name="formLayout">
+       <property name="leftMargin">
+        <number>20</number>
+       </property>
+       <property name="topMargin">
+        <number>20</number>
+       </property>
+       <property name="rightMargin">
+        <number>20</number>
+       </property>
+       <property name="bottomMargin">
+        <number>20</number>
+       </property>
+       <item row="0" column="0">
+        <widget class="QLabel" name="label">
+         <property name="text">
+          <string>Langue</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QComboBox" name="comboLang">
+         <item>
+          <property name="text">
+           <string>Français</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>English</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="label_2">
+         <property name="text">
+          <string>Thème</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QComboBox" name="comboTheme">
+         <item>
+          <property name="text">
+           <string>Dark Medical (Défaut)</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Light Professional</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tabSecurity">
+      <attribute name="title">
+       <string>Sécurité</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <property name="leftMargin">
+        <number>20</number>
+       </property>
+       <property name="topMargin">
+        <number>20</number>
+       </property>
+       <property name="rightMargin">
+        <number>20</number>
+       </property>
+       <property name="bottomMargin">
+        <number>20</number>
+       </property>
+       <item>
+        <widget class="QCheckBox" name="checkBiometry">
+         <property name="text">
+          <string>Activer l'authentification biométrique</string>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_3">
+         <property name="text">
+          <string>Expiration de session (heures)</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QSpinBox" name="spinSession">
+         <property name="value">
+          <number>24</number>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer">
+         <property name="orientation">
+          <set>Qt::Vertical</set>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <set>Qt::Horizontal</set>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnCancel">
+       <property name="text">
+        <string>Annuler</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnSave">
+       <property name="styleSheet">
+        <string notr="true">QDialog {
+    background-color: #ffffff;
+    color: #262626;
+}
+QTabWidget::pane {
+    border: 1px solid #e8e8e8;
+    background-color: #ffffff;
+    border-radius: 0 8px 8px 8px;
+}
+QTabBar::tab {
+    background-color: #f5f5f5;
+    color: #595959;
+    padding: 10px 20px;
+    margin: 2px;
+    border-radius: 6px 6px 0 0;
+}
+QTabBar::tab:selected {
+    background-color: #1890ff;
+    color: #ffffff;
+    font-weight: bold;
+}
+QLabel { color: #262626; }
+QLineEdit {
+    background-color: #f5f5f5;
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    color: #262626;
+    padding: 5px;
+}
+QComboBox {
+    background-color: #f5f5f5;
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    color: #262626;
+    padding: 5px;
+}
+QSpinBox {
+    background-color: #f5f5f5;
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    color: #262626;
+    padding: 5px;
+}</string>
+       </property>
+       <property name="text">
+        <string>Enregistrer</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

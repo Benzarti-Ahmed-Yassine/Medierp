@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ConsultationForm</class>
+ <widget class="QWidget" name="ConsultationForm">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1000</width>
+    <height>800</height>
+   </rect>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget {
+    background-color: #ffffff;
+    color: #262626;
+}
+QGroupBox {
+    border: 1px solid #e8e8e8;
+    border-radius: 8px;
+    margin-top: 15px;
+    padding-top: 15px;
+    font-weight: bold;
+    color: #1890ff;
+    background-color: #ffffff;
+}
+QLineEdit, QDoubleSpinBox, QSpinBox, QComboBox, QTextEdit {
+    background-color: #f5f5f5;
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    padding: 6px;
+    color: #262626;
+}
+QLineEdit:focus, QDoubleSpinBox:focus, QSpinBox:focus, QTextEdit:focus {
+    border-color: #1890ff;
+    background-color: #ffffff;
+}
+QPushButton#btnPredict {
+    background-color: #f0f2f5;
+    color: #1890ff;
+    font-weight: bold;
+    border-radius: 6px;
+    padding: 10px;
+    border: 1px solid #1890ff;
+}
+QPushButton#btnPredict:hover {
+    background-color: #e6f7ff;
+}
+QPushButton#btnSave {
+    background-color: #1890ff;
+    color: #ffffff;
+    font-weight: bold;
+    border-radius: 6px;
+    padding: 10px;
+}
+QPushButton#btnSave:hover {
+    background-color: #40a9ff;
+}</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="spacing">
+    <number>15</number>
+   </property>
+   <property name="leftMargin">
+    <number>30</number>
+   </property>
+   <property name="topMargin">
+    <number>30</number>
+   </property>
+   <property name="rightMargin">
+    <number>30</number>
+   </property>
+   <property name="bottomMargin">
+    <number>30</number>
+   </property>
+   <item>
+    <widget class="QLabel" name="lblTitle">
+     <property name="font">
+      <font>
+       <family>Segoe UI</family>
+       <pointsize>20</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>🩺 Nouvelle Consultation</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="groupPatient">
+     <property name="title">
+      <string>PATIENT</string>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QLabel" name="lblPatientName">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>Chargement patient...</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QLabel" name="lblAge">
+        <property name="text">
+         <string>Âge: -- ans</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="middleLayout">
+     <item>
+      <widget class="QGroupBox" name="groupVitals">
+       <property name="title">
+        <string>CONSTANTES VITALES</string>
+       </property>
+       <layout class="QFormLayout" name="formLayout">
+        <item row="0" column="0">
+         <widget class="QLabel" name="label">
+          <property name="text">
+           <string>Pression Systolique (mmHg)</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QSpinBox" name="spinSystolic">
+          <property name="maximum">
+           <number>300</number>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="label_2">
+          <property name="text">
+           <string>Pression Diastolique (mmHg)</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QSpinBox" name="spinDiastolic">
+          <property name="maximum">
+           <number>200</number>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QLabel" name="label_3">
+          <property name="text">
+           <string>Fréquence Cardiaque (BPM)</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QSpinBox" name="spinHeartRate">
+          <property name="maximum">
+           <number>250</number>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="0">
+         <widget class="QLabel" name="label_4">
+          <property name="text">
+           <string>Température (°C)</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="1">
+         <widget class="QDoubleSpinBox" name="spinTemp">
+          <property name="value">
+           <double>37.000000000000000</double>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QGroupBox" name="groupAI">
+       <property name="styleSheet">
+        <string notr="true">QWidget {
+    background-color: #ffffff;
+    color: #262626;
+}
+QGroupBox {
+    border: 1px solid #e8e8e8;
+    border-radius: 8px;
+    margin-top: 15px;
+    padding-top: 15px;
+    font-weight: bold;
+    color: #1890ff;
+    background-color: #ffffff;
+}
+QLineEdit, QDoubleSpinBox, QSpinBox, QComboBox, QTextEdit {
+    background-color: #f5f5f5;
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    padding: 6px;
+    color: #262626;
+}
+QLineEdit:focus, QDoubleSpinBox:focus, QSpinBox:focus, QTextEdit:focus {
+    border-color: #1890ff;
+    background-color: #ffffff;
+}
+QPushButton#btnPredict {
+    background-color: #f0f2f5;
+    color: #1890ff;
+    font-weight: bold;
+    border-radius: 6px;
+    padding: 10px;
+    border: 1px solid #1890ff;
+}
+QPushButton#btnPredict:hover {
+    background-color: #e6f7ff;
+}
+QPushButton#btnSave {
+    background-color: #1890ff;
+    color: #ffffff;
+    font-weight: bold;
+    border-radius: 6px;
+    padding: 10px;
+}
+QPushButton#btnSave:hover {
+    background-color: #40a9ff;
+}</string>
+       </property>
+       <property name="title">
+        <string>ASSISTANCE IA PRÉDICTIVE</string>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <item>
+         <widget class="QPushButton" name="btnPredict">
+          <property name="text">
+           <string>🤖 CALCULER LE RISQUE CARDIAQUE</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QFrame" name="riskResultFrame">
+          <property name="styleSheet">
+           <string notr="true">QWidget {
+    background-color: #ffffff;
+    color: #262626;
+}
+QGroupBox {
+    border: 1px solid #e8e8e8;
+    border-radius: 8px;
+    margin-top: 15px;
+    padding-top: 15px;
+    font-weight: bold;
+    color: #1890ff;
+    background-color: #ffffff;
+}
+QLineEdit, QDoubleSpinBox, QSpinBox, QComboBox, QTextEdit {
+    background-color: #f5f5f5;
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    padding: 6px;
+    color: #262626;
+}
+QLineEdit:focus, QDoubleSpinBox:focus, QSpinBox:focus, QTextEdit:focus {
+    border-color: #1890ff;
+    background-color: #ffffff;
+}
+QPushButton#btnPredict {
+    background-color: #f0f2f5;
+    color: #1890ff;
+    font-weight: bold;
+    border-radius: 6px;
+    padding: 10px;
+    border: 1px solid #1890ff;
+}
+QPushButton#btnPredict:hover {
+    background-color: #e6f7ff;
+}
+QPushButton#btnSave {
+    background-color: #1890ff;
+    color: #ffffff;
+    font-weight: bold;
+    border-radius: 6px;
+    padding: 10px;
+}
+QPushButton#btnSave:hover {
+    background-color: #40a9ff;
+}</string>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_3">
+           <item>
+            <widget class="QLabel" name="lblRiskScore">
+             <property name="font">
+              <font>
+               <pointsize>16</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="text">
+              <string>Score: --%</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="lblRiskLevel">
+             <property name="text">
+              <string>Niveau: --</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="groupBox">
+     <property name="title">
+      <string>OBSERVATIONS MÉDICALES</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_4">
+      <item>
+       <widget class="QTextEdit" name="txtNotes">
+        <property name="placeholderText">
+         <string>Saisissez vos observations ici ou utilisez la dictée vocale...</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnVoice">
+        <property name="styleSheet">
+         <string notr="true">QWidget {
+    background-color: #ffffff;
+    color: #262626;
+}
+QGroupBox {
+    border: 1px solid #e8e8e8;
+    border-radius: 8px;
+    margin-top: 15px;
+    padding-top: 15px;
+    font-weight: bold;
+    color: #1890ff;
+    background-color: #ffffff;
+}
+QLineEdit, QDoubleSpinBox, QSpinBox, QComboBox, QTextEdit {
+    background-color: #f5f5f5;
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    padding: 6px;
+    color: #262626;
+}
+QLineEdit:focus, QDoubleSpinBox:focus, QSpinBox:focus, QTextEdit:focus {
+    border-color: #1890ff;
+    background-color: #ffffff;
+}
+QPushButton#btnPredict {
+    background-color: #f0f2f5;
+    color: #1890ff;
+    font-weight: bold;
+    border-radius: 6px;
+    padding: 10px;
+    border: 1px solid #1890ff;
+}
+QPushButton#btnPredict:hover {
+    background-color: #e6f7ff;
+}
+QPushButton#btnSave {
+    background-color: #1890ff;
+    color: #ffffff;
+    font-weight: bold;
+    border-radius: 6px;
+    padding: 10px;
+}
+QPushButton#btnSave:hover {
+    background-color: #40a9ff;
+}</string>
+        </property>
+        <property name="text">
+         <string>🎤 ACTIVER LA DICTÉE VOCALE</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="bottomLayout">
+     <item>
+      <spacer name="horizontalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnCancel">
+       <property name="text">
+        <string>Annuler</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnSave">
+       <property name="text">
+        <string>💾 ENREGISTRER LA CONSULTATION</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

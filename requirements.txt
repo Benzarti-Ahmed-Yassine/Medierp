@@ -1,0 +1,46 @@
+# Smart Medical AI - Requirements
+# Compatible Python 3.10+ et Thonny IDE
+
+# === CORE UI (PySide6 est recommandé si PyQt6 échoue) ===
+PySide6>=6.5.0
+# PyQt6==6.5.3
+# === MACHINE LEARNING ===
+scikit-learn==1.3.2
+numpy==1.24.3
+joblib==1.3.2
+
+
+
+# === SECURITY ===
+bcrypt==4.1.1
+PyJWT>=2.8.0
+cryptography==41.0.7
+
+# === PDF GENERATION ===
+reportlab==4.0.7
+qrcode==7.4.2
+pillow==10.1.0
+
+# === DATA PROCESSING ===
+pandas==2.1.3
+openpyxl==3.1.2
+
+# === VOICE (optionnel - peut être simulé) ===
+SpeechRecognition==3.10.0
+pyttsx3==2.90
+pyaudio==0.2.13; platform_system != "Darwin"  # Exclu MacOS si problème
+
+# === VISION (optionnel - peut être simulé) ===
+opencv-contrib-python>=4.8.0
+
+# === UTILITIES ===
+python-dotenv==1.0.0
+requests==2.31.0
+
+# === TESTING ===
+pytest==7.4.3
+pytest-cov==4.1.0
+
+# === CODE QUALITY ===
+black==23.12.1
+flake8==6.1.0

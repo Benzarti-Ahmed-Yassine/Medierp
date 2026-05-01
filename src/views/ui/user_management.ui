@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>UserManagement</class>
+ <widget class="QWidget" name="UserManagement">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1000</width>
+    <height>700</height>
+   </rect>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget {
+    background-color: #ffffff;
+    color: #262626;
+}
+QTableWidget {
+    background-color: #ffffff;
+    border: 1px solid #f0f0f0;
+    color: #262626;
+}
+QHeaderView::section {
+    background-color: #ffffff;
+    color: #1890ff;
+    padding: 10px;
+    border: none;
+    border-bottom: 2px solid #1890ff;
+    font-weight: bold;
+}
+QPushButton {
+    background-color: #1890ff;
+    color: #ffffff;
+    font-weight: bold;
+    border-radius: 6px;
+    padding: 8px 16px;
+}</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="spacing">
+    <number>20</number>
+   </property>
+   <property name="leftMargin">
+    <number>30</number>
+   </property>
+   <property name="topMargin">
+    <number>30</number>
+   </property>
+   <property name="rightMargin">
+    <number>30</number>
+   </property>
+   <property name="bottomMargin">
+    <number>30</number>
+   </property>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QLabel" name="label">
+       <property name="font">
+        <font>
+         <family>Segoe UI</family>
+         <pointsize>20</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>👥 Gestion des Utilisateurs</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <set>Qt::Horizontal</set>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnAddUser">
+       <property name="text">
+        <string>➕ CRÉER UN COMPTE</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QTableWidget" name="tableUsers">
+     <column>
+      <property name="text">
+       <string>ID</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Nom complet</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Email</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Rôle</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Dernier login</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Statut</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Actions</string>
+      </property>
+     </column>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

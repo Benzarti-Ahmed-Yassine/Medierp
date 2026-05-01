@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>AgendaWidget</class>
+ <widget class="QWidget" name="AgendaWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1000</width>
+    <height>700</height>
+   </rect>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget {
+    background-color: #ffffff;
+    color: #262626;
+}
+QCalendarWidget {
+    background-color: #ffffff;
+    color: #262626;
+    border: 1px solid #e8e8e8;
+    border-radius: 8px;
+}
+QCalendarWidget QAbstractItemView:enabled {
+    background-color: #ffffff;
+    color: #262626;
+    selection-background-color: #e6f7ff;
+    selection-color: #1890ff;
+}
+QCalendarWidget QWidget#qt_calendar_navigationbar {
+    background-color: #f5f5f5;
+}
+QCalendarWidget QToolButton {
+    color: #1890ff;
+    background-color: transparent;
+    font-weight: bold;
+}
+QListWidget {
+    background-color: #ffffff;
+    border: 1px solid #e8e8e8;
+    border-radius: 8px;
+    padding: 10px;
+    color: #262626;
+}
+QListWidget::item:selected {
+    background-color: #e6f7ff;
+    color: #1890ff;
+}
+QPushButton#btnAddAppointment {
+    background-color: #1890ff;
+    color: #ffffff;
+    font-weight: bold;
+    border-radius: 6px;
+    padding: 10px;
+}
+QPushButton#btnAddAppointment:hover {
+    background-color: #40a9ff;
+}</string>
+  </property>
+  <layout class="QHBoxLayout" name="horizontalLayout">
+   <property name="spacing">
+    <number>20</number>
+   </property>
+   <property name="leftMargin">
+    <number>30</number>
+   </property>
+   <property name="topMargin">
+    <number>30</number>
+   </property>
+   <property name="rightMargin">
+    <number>30</number>
+   </property>
+   <property name="bottomMargin">
+    <number>30</number>
+   </property>
+   <item>
+    <layout class="QVBoxLayout" name="leftLayout">
+     <property name="spacing">
+      <number>15</number>
+     </property>
+     <item>
+      <widget class="QLabel" name="label">
+       <property name="font">
+        <font>
+         <family>Segoe UI</family>
+         <pointsize>20</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>📅 Agenda &amp; RDV</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QCalendarWidget" name="calendarWidget">
+       <property name="minimumSize">
+        <size>
+         <width>400</width>
+         <height>350</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnAddAppointment">
+       <property name="text">
+        <string>➕ PRENDRE UN RENDEZ-VOUS</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="verticalSpacer">
+       <property name="orientation">
+        <set>Qt::Vertical</set>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>40</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QVBoxLayout" name="rightLayout">
+     <property name="spacing">
+      <number>15</number>
+     </property>
+     <item>
+      <widget class="QLabel" name="lblSelectedDate">
+       <property name="font">
+        <font>
+         <pointsize>14</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Rendez-vous du jour</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QListWidget" name="listAppointments"/>
+     </item>
+     <item>
+      <widget class="QFrame" name="appointmentDetails">
+       <property name="styleSheet">
+        <string notr="true">QWidget {
+    background-color: #ffffff;
+    color: #262626;
+}
+QCalendarWidget {
+    background-color: #ffffff;
+    color: #262626;
+    border: 1px solid #e8e8e8;
+    border-radius: 8px;
+}
+QCalendarWidget QAbstractItemView:enabled {
+    background-color: #ffffff;
+    color: #262626;
+    selection-background-color: #e6f7ff;
+    selection-color: #1890ff;
+}
+QCalendarWidget QWidget#qt_calendar_navigationbar {
+    background-color: #f5f5f5;
+}
+QCalendarWidget QToolButton {
+    color: #1890ff;
+    background-color: transparent;
+    font-weight: bold;
+}
+QListWidget {
+    background-color: #ffffff;
+    border: 1px solid #e8e8e8;
+    border-radius: 8px;
+    padding: 10px;
+    color: #262626;
+}
+QListWidget::item:selected {
+    background-color: #e6f7ff;
+    color: #1890ff;
+}
+QPushButton#btnAddAppointment {
+    background-color: #1890ff;
+    color: #ffffff;
+    font-weight: bold;
+    border-radius: 6px;
+    padding: 10px;
+}
+QPushButton#btnAddAppointment:hover {
+    background-color: #40a9ff;
+}</string>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout">
+        <item>
+         <widget class="QLabel" name="label_2">
+          <property name="styleSheet">
+           <string notr="true">QWidget {
+    background-color: #ffffff;
+    color: #262626;
+}
+QCalendarWidget {
+    background-color: #ffffff;
+    color: #262626;
+    border: 1px solid #e8e8e8;
+    border-radius: 8px;
+}
+QCalendarWidget QAbstractItemView:enabled {
+    background-color: #ffffff;
+    color: #262626;
+    selection-background-color: #e6f7ff;
+    selection-color: #1890ff;
+}
+QCalendarWidget QWidget#qt_calendar_navigationbar {
+    background-color: #f5f5f5;
+}
+QCalendarWidget QToolButton {
+    color: #1890ff;
+    background-color: transparent;
+    font-weight: bold;
+}
+QListWidget {
+    background-color: #ffffff;
+    border: 1px solid #e8e8e8;
+    border-radius: 8px;
+    padding: 10px;
+    color: #262626;
+}
+QListWidget::item:selected {
+    background-color: #e6f7ff;
+    color: #1890ff;
+}
+QPushButton#btnAddAppointment {
+    background-color: #1890ff;
+    color: #ffffff;
+    font-weight: bold;
+    border-radius: 6px;
+    padding: 10px;
+}
+QPushButton#btnAddAppointment:hover {
+    background-color: #40a9ff;
+}</string>
+          </property>
+          <property name="text">
+           <string>Détails du Rendez-vous</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="lblPatientInfo">
+          <property name="text">
+           <string>Sélectionnez un rendez-vous pour voir les détails</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

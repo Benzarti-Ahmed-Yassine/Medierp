@@ -1,0 +1,59 @@
+{
+  "app": {
+    "name": "Smart Medical AI",
+    "version": "1.0.0",
+    "author": "Dr. Didier + Student",
+    "description": "Plateforme IA de Médecine Préventive"
+  },
+  "ui": {
+    "theme": "dark",
+    "window_width": 1400,
+    "window_height": 900,
+    "font_family": "Segoe UI",
+    "font_size": 11,
+    "accent_color": "#00d4ff",
+    "danger_color": "#e94560",
+    "success_color": "#41cd52",
+    "warning_color": "#ffd43b"
+  },
+  "database": {
+    "path": "./db/medical.db",
+    "backup_enabled": true,
+    "backup_interval_hours": 24,
+    "max_backups": 30,
+    "encryption_enabled": true
+  },
+  "security": {
+    "password_min_length": 8,
+    "bcrypt_rounds": 12,
+    "jwt_expiry_hours": 24,
+    "session_timeout_minutes": 30,
+    "max_login_attempts": 3,
+    "lockout_duration_minutes": 15
+  },
+  "ml": {
+    "model_path": "./assets/models/heart_risk_model.pkl",
+    "scaler_path": "./assets/models/feature_scaler.pkl",
+    "confidence_threshold": 0.7,
+    "auto_predict_on_consultation": true,
+    "risk_levels": {
+      "low": {"max": 30, "color": "#41cd52", "label": "Faible"},
+      "medium": {"min": 30, "max": 70, "color": "#ffd43b", "label": "Modéré"},
+      "high": {"min": 70, "max": 100, "color": "#e94560", "label": "Élevé"}
+    }
+  },
+  "compliance": {
+    "cnil_mode": true,
+    "gdpr_retention_days": 2555,
+    "anonymize_exports": true,
+    "audit_all_actions": true,
+    "log_retention_days": 7300
+  },
+  "features": {
+    "biometric_auth": true,
+    "voice_dictation": true,
+    "blockchain_audit": true,
+    "real_time_dashboard": true,
+    "email_notifications": true
+  }
+}
