@@ -435,13 +435,33 @@ QPushButton#btnSave:hover {
        </property>
       </widget>
      </item>
-     <item>
-      <widget class="QPushButton" name="btnSave">
-       <property name="text">
-        <string>💾 ENREGISTRER LA CONSULTATION</string>
-       </property>
-      </widget>
-     </item>
+      <item>
+       <widget class="QPushButton" name="btnGeneratePrescription">
+        <property name="text">
+         <string>📄 GÉNÉRER ORDONNANCE</string>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+    background-color: #f0f2f5;
+    color: #1890ff;
+    font-weight: bold;
+    border-radius: 6px;
+    padding: 10px;
+    border: 1px solid #1890ff;
+}
+QPushButton:hover {
+    background-color: #e6f7ff;
+}</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnSave">
+        <property name="text">
+         <string>💾 ENREGISTRER LA CONSULTATION</string>
+        </property>
+       </widget>
+      </item>
     </layout>
    </item>
   </layout>

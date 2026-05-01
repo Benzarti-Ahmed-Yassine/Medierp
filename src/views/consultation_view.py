@@ -32,6 +32,10 @@ class ConsultationWidget(QtWidgets.QWidget):
         # Analyse IA
         if hasattr(self, "btnAnalyze"):
             self.btnAnalyze.clicked.connect(self._on_analyze)
+            
+        # Génération Ordonnance
+        if hasattr(self, "btnGeneratePrescription"):
+            self.btnGeneratePrescription.clicked.connect(self._on_generate_prescription)
 
     def _toggle_voice(self):
         if not self.voice.is_listening:
@@ -70,3 +74,27 @@ class ConsultationWidget(QtWidgets.QWidget):
             self.lblRiskLevel.setStyleSheet(f"font-weight: bold; color: {color};")
         if hasattr(self, "txtAIExplanation"):
             self.txtAIExplanation.setText(explanation)
+
+    def _on_generate_prescription(self):
+        """Génère le PDF de l'ordonnance"""
+        from ..services.pdf_service import pdf_service
+        
+        # Données fictives pour la démo, en réel on prendrait les infos du patient actif
+        prescription_data = {
+            "id": 123,
+            "medications": [
+                {"name": "Amlodipine", "dosage": "5mg", "duration_days": 30, "instructions": "1 comprimé le matin"},
+                {"name": "Atorvastatine", "dosage": "20mg", "duration_days": 60, "instructions": "1 comprimé le soir"}
+            ]
+        }
+        
+        patient = {"first_name": "Jean", "last_name": "Dupont"}
+        doctor = self.app.current_user or {"full_name": "Yassine Benzarti", "specialty": "Cardiologue"}
+        
+        try:
+            path = pdf_service.generate_prescription(prescription_data, patient, doctor)
+            QtWidgets.QMessageBox.information(self, "Succès", f"Ordonnance générée :\n{path}")
+            # Ouvrir le fichier automatiquement
+            os.startfile(os.path.abspath(path))
+        except Exception as e:
+            QtWidgets.QMessageBox.critical(self, "Erreur", f"Erreur lors de la génération PDF : {e}")

@@ -282,6 +282,8 @@ CREATE TABLE IF NOT EXISTS audit_logs (
     action TEXT,
     table_name TEXT,
     record_id INTEGER,
+    old_value TEXT,
+    new_value TEXT,
     previous_hash TEXT,
     current_hash TEXT,
     timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP

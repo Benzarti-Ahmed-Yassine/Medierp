@@ -215,15 +215,17 @@ class SecurityManager:
     def log_audit_event(self, user_id: int, action: str, table_name: str = None,
                        record_id: int = None, old_value: str = None, 
                        new_value: str = None) -> str:
-        """Logger un événement d'audit avec chaînage"""
+        """Logger un événement d'audit avec chaînage (Blockchain-style)"""
 
-        # Récupérer le dernier hash
+        # Récupérer le dernier hash pour le chaînage
         last_log = self.db.fetch_one(
             """SELECT current_hash FROM audit_logs ORDER BY id DESC LIMIT 1"""
         )
         previous_hash = last_log["current_hash"] if last_log else "0" * 64
 
-        # Créer l'événement
+        # Préparer les données de l'événement pour le hachage
+        # On inclut le timestamp et le hash précédent pour l'immuabilité
+        timestamp = datetime.now().isoformat()
         event_data = {
             "user_id": user_id,
             "action": action,
@@ -231,7 +233,7 @@ class SecurityManager:
             "record_id": record_id,
             "old_value": old_value,
             "new_value": new_value,
-            "timestamp": datetime.now().isoformat(),
+            "timestamp": timestamp,
             "previous_hash": previous_hash
         }
 
@@ -246,25 +248,28 @@ class SecurityManager:
             "old_value": old_value,
             "new_value": new_value,
             "previous_hash": previous_hash,
-            "current_hash": current_hash
+            "current_hash": current_hash,
+            "timestamp": timestamp
         })
 
         return current_hash
 
     def verify_audit_chain(self) -> bool:
-        """Vérifier l'intégrité de la chaîne d'audit"""
+        """Vérifier l'intégrité complète de la chaîne d'audit"""
         logs = self.db.fetch_all("SELECT * FROM audit_logs ORDER BY id")
 
         for i, log in enumerate(logs):
+            # 1. Vérifier le chaînage avec le hash précédent
             if i == 0:
                 expected_previous = "0" * 64
             else:
                 expected_previous = logs[i - 1]["current_hash"]
 
             if log["previous_hash"] != expected_previous:
+                print(f"[Audit] ❌ Rupture de chaîne détectée à l'ID {log['id']}")
                 return False
 
-            # Recalculer le hash
+            # 2. Recalculer le hash actuel pour vérifier l'immuabilité des données
             event_data = {
                 "user_id": log["user_id"],
                 "action": log["action"],
@@ -276,7 +281,11 @@ class SecurityManager:
                 "previous_hash": log["previous_hash"]
             }
 
-            if self.hash_event(event_data) != log["current_hash"]:
+            calculated_hash = self.hash_event(event_data)
+            if calculated_hash != log["current_hash"]:
+                print(f"[Audit] ❌ Corruption de données détectée à l'ID {log['id']}")
+                print(f"Calculé: {calculated_hash}")
+                print(f"Stocké:  {log['current_hash']}")
                 return False
 
         return True

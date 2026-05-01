@@ -55,6 +55,14 @@ class SmartMedicalApp(QtWidgets.QApplication):
             self.db = DatabaseManager()
             self.security = SecurityManager()
             self.events = EventBus()
+            
+            # Vérification de l'intégrité de la base de données (Audit Blockchain)
+            if not self.security.verify_audit_chain():
+                print("[App] ⚠️ ALERTE SÉCURITÉ : L'intégrité de l'audit est compromise !")
+                # On pourrait bloquer le démarrage ici en production
+            else:
+                print("[App] ✅ Intégrité de l'audit vérifiée.")
+
             self._load_stylesheet()
             self._configure_fonts()
 
