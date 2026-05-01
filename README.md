@@ -1,35 +1,30 @@
 # 🏥 MediERP Professional
 
-**Système ERP Médical Intégré avec IA Prédictive et Authentification Biométrique**
+**Système ERP Médical Avancé avec IA Prédictive et Authentification Biométrique**
 
-> Une solution complète pour la gestion médicale moderne, optimisée pour la performance et l'expérience utilisateur avec un design "Full Light" professionnel.
+> Une solution Desktop complète pour la gestion médicale moderne, optimisée pour la performance et l'expérience utilisateur avec un design "Full Light" professionnel développé en Python/PySide6.
 
 ---
 
 ## ✨ Points Forts
-- 🎨 **Design Premium** — Interface "Full Light" épurée, moderne et intuitive.
+- 🎨 **Design Premium** — Interface "Full Light" épurée, moderne et intuitive (PySide6).
 - 🤖 **IA Prédictive** — Analyse des risques cardiaques via Machine Learning (Scikit-learn).
 - 🔐 **Sécurité Biométrique** — Authentification par reconnaissance faciale et vocale.
-- 🌐 **Architecture Hybride** — Application Desktop performante (Python) et Interface Web moderne (React).
-- ☁️ **Synchronisation Cloud** — Intégration native avec Supabase pour une gestion temps réel.
 - 🎤 **Dictée Vocale** — Assistant intelligent pour la saisie des consultations.
+- 🔒 **Sécurité Avancée** — Chiffrement des données et authentification forte.
+- 📊 **Gestion Patients** — Dossiers complets, antécédents et suivi cardiologique.
 
 ---
 
 ## 🏗️ Architecture du Système
 
-MediERP repose sur une stack technologique hybride unique combinant la puissance du Desktop et la flexibilité du Web.
+MediERP est une application Desktop robuste construite sur une architecture modulaire en Python.
 
-### 🔹 Backend & Desktop (Python Stack)
+### 🔹 Composants Principaux
 *   **Core**: Gestion du cycle de vie de l'application, sécurité et événements (`src/core`).
-*   **UI Desktop**: Interface riche développée en PyQt6 avec styles QSS personnalisés (`src/views`).
+*   **UI Desktop**: Interface riche développée en PySide6 avec styles QSS personnalisés (`src/views`).
 *   **Intelligence Artificielle**: Modèles ML pour le diagnostic et services biométriques (`src/services`).
-*   **Persistance Locale**: SQLite avec chiffrement pour la confidentialité des données.
-
-### 🔹 Frontend Web (React Stack)
-*   **Framework**: Vite + React + TypeScript pour une réactivité maximale.
-*   **UI Components**: Design system basé sur Shadcn UI et Tailwind CSS (`src/components/ui`).
-*   **Backend-as-a-Service**: Synchronisation et authentification via Supabase (`src/integrations`).
+*   **Persistance**: SQLite avec chiffrement pour la confidentialité absolue des données médicales.
 
 ---
 
@@ -39,25 +34,22 @@ MediERP repose sur une stack technologique hybride unique combinant la puissance
 MediERP/
 ├── src/
 │   ├── core/           # Moteur de l'application (Database, Security, Events)
-│   ├── views/          # Interface Desktop PyQt6 (.py & .ui)
+│   ├── views/          # Interface Desktop PyQt6/PySide6 (.py & .ui)
 │   ├── services/       # Services IA (Face Recog, ML, Voice, Speech)
 │   ├── models/         # Modèles de données (Patient, User, Base)
-│   ├── components/     # Composants React (PatientList, AdminDashboard, etc.)
-│   ├── hooks/          # Logic web (usePatients, useMedicaments)
-│   └── integrations/   # Connexion Supabase
+│   └── utils/          # Utilitaires et compatibilité Qt
 ├── database/           # Schémas SQL et scripts de migration
 ├── db/                 # Bases de données SQLite locales
 ├── config/             # Paramètres système et feuilles de style QSS
 ├── assets/             # Modèles ML (.pkl), Fonts, et Multimédia
-├── supabase/           # Configuration et migrations Cloud
-└── tests/              # Suite de tests unitaires et d'intégration
+├── tests/              # Suite de tests unitaires et d'intégration
+└── main.py             # Point d'entrée de l'application
 ```
 
 ---
 
 ## 🚀 Installation et Lancement
 
-### 🖥️ Application Desktop (Python)
 1.  **Prérequis**: Python 3.10+
 2.  **Environnement**:
     ```bash
@@ -70,29 +62,17 @@ MediERP/
     python main.py
     ```
 
-### 🌐 Application Web (React)
-1.  **Prérequis**: Node.js 18+
-2.  **Installation**:
-    ```bash
-    npm install
-    ```
-3.  **Lancement**:
-    ```bash
-    npm run dev
-    ```
-
 ---
 
-## 📋 Stack Technique Complète
+## 📋 Stack Technique
 
 | Domaine | Technologies |
 | :--- | :--- |
-| **Langages** | Python 3.12, TypeScript, SQL |
-| **Desktop GUI** | PyQt6, Qt Designer, QSS |
-| **Web Frontend** | React, Vite, Tailwind CSS, Shadcn UI |
-| **Data & Cloud** | Supabase, PostgreSQL, SQLite |
+| **Langage** | Python 3.12 |
+| **GUI Framework** | PySide6 / PyQt6 |
+| **Base de Données** | SQLite3 |
 | **Machine Learning** | Scikit-learn, OpenCV, NumPy |
-| **Sécurité** | Biométrie (FaceID), Bcrypt, JWT |
+| **Sécurité** | Biométrie, Bcrypt, Cryptography |
 | **Services** | Dictée vocale, Génération PDF (ReportLab) |
 
 ---
